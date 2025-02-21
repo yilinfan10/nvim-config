@@ -18,7 +18,10 @@ return {
         "vim-airline/vim-airline",
     },
     {
-        "tomasiser/vim-code-dark",
+        "Mofiqul/vscode.nvim",
+        config = function()
+          require("vscode").load('dark')
+        end,
     },
     {
       "williamboman/mason.nvim",
