@@ -1,11 +1,15 @@
+-- Set colorscheme
+-- vim.cmd("colorscheme desert")
+
 require("config.lazy")
+require('config.nvim-cmp')
+require('config.gp')
 
 -- Enable line numbers and syntax highlighting
 vim.opt.number = true
 vim.opt.syntax = 'on'
 
--- Set colorscheme
---vim.cmd("colorscheme codedark")
+vim.opt.updatetime = 750
 
 -- Load matchit plugin
 vim.cmd("runtime macros/matchit.vim")
@@ -90,3 +94,6 @@ vim.api.nvim_set_keymap('n', '<leader>s', ':call v:lua.FzyCommand("plocate $PWD"
 
 -- Close buffer but keep window
 vim.api.nvim_set_keymap('n', '<leader>q', ':bp<bar>sp<bar>bn<bar>bd<CR>', { noremap = true })
+
+-- code navigation
+vim.api.nvim_buf_set_keymap(0, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
