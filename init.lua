@@ -5,6 +5,7 @@ require("config.lazy")
 require('config.nvim-cmp')
 require('config.gp')
 require('config.vscode')
+require('config.nvim-ufo')
 
 -- Enable line numbers and syntax highlighting
 vim.opt.number = true

@@ -49,7 +49,6 @@ return {
       })
     end,
   },
-
   {
     "hrsh7th/nvim-cmp", -- completion plugin
     "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
@@ -63,7 +62,11 @@ return {
     'windwp/nvim-autopairs',
     event = "InsertEnter",
     config = true
-    -- use opts = {} for passing setup options
-    -- this is equivalent to setup({}) function
+  },
+  {
+    "kevinhwang91/nvim-ufo",
+    dependencies = {
+      'kevinhwang91/promise-async'
+    },
   },
 }
