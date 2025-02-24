@@ -69,4 +69,7 @@ return {
       'kevinhwang91/promise-async'
     },
   },
+  {
+    "airblade/vim-gitgutter",
+  },
 }

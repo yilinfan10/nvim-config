@@ -5,13 +5,13 @@ require("config.lazy")
 require('config.nvim-cmp')
 require('config.gp')
 require('config.vscode')
+-- config.vscode must be called before config.vim-gitgutter because the former will override gitgutter highlight group,
+require('config.vim-gitgutter')
 require('config.nvim-ufo')
 
 -- Enable line numbers and syntax highlighting
 vim.opt.number = true
 vim.opt.syntax = 'on'
-
-vim.opt.updatetime = 750
 
 -- Enable hidden buffers
 vim.opt.hidden = true
