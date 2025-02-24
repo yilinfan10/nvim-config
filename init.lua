@@ -4,15 +4,13 @@
 require("config.lazy")
 require('config.nvim-cmp')
 require('config.gp')
+require('config.vscode')
 
 -- Enable line numbers and syntax highlighting
 vim.opt.number = true
 vim.opt.syntax = 'on'
 
 vim.opt.updatetime = 750
-
--- Load matchit plugin
-vim.cmd("runtime macros/matchit.vim")
 
 -- Enable hidden buffers
 vim.opt.hidden = true
