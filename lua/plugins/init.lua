@@ -40,7 +40,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").pyright.setup{}
+      require("lspconfig").pyright.setup({
+        root_dir = require('lspconfig').util.root_pattern(".git"),
+      })
       require("lspconfig").clangd.setup({
         cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
         filetypes = { "c", "cpp", "objc", "objcpp" },
