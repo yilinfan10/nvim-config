@@ -42,6 +42,14 @@ return {
     config = function()
       require("lspconfig").pyright.setup({
         root_dir = require('lspconfig').util.root_pattern(".git"),
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            diagnosticMode = "openFilesOnly",
+            useLibraryCodeForTypes = true,
+            exclude = {"build"},
+          }
+        }
       })
       require("lspconfig").clangd.setup({
         cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },

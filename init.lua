@@ -52,7 +52,8 @@ vim.api.nvim_set_keymap('n', '_', ':Ex<bar>:sil! /<C-R>=expand("%:t")<CR><CR>:no
 vim.g.netrw_liststyle = 3
 vim.g.netrw_sort_sequence = ''
 vim.g.netrw_banner = 0
-vim.cmd("let g:netrw_list_hide = netrw_gitignore#Hide()")
+-- disable netrw_list_hide because netrw_gitignore is very slow in certain case
+-- vim.cmd("let g:netrw_list_hide = netrw_gitignore#Hide()")
 
 -- Window size shortcuts
 vim.api.nvim_set_keymap('n', '-', '10<C-W>-', { noremap = true })
