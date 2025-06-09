@@ -22,42 +22,23 @@ return {
   },
   {
     "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "pyright",
-          "clangd",
-        },
-      })
-    end,
+    opts = {},
   },
   {
     "neovim/nvim-lspconfig",
-    config = function()
-      require("lspconfig").pyright.setup({
-        root_dir = require('lspconfig').util.root_pattern(".git"),
-        python = {
-          analysis = {
-            autoSearchPaths = true,
-            diagnosticMode = "openFilesOnly",
-            useLibraryCodeForTypes = true,
-            exclude = {"build"},
-          }
-        }
-      })
-      require("lspconfig").clangd.setup({
-        cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
-        filetypes = { "c", "cpp", "objc", "objcpp" },
-        root_dir = require('lspconfig').util.root_pattern("compile_commands.json", ".git"),
-        init_options = { fallbackFlags = { "-std=c++17" } },
-      })
-    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = {
+        "pyright",
+        "clangd",
+      },
+    },
+    dependencies = {
+        "mason-org/mason.nvim",
+        "neovim/nvim-lspconfig",
+    },
   },
   {
     "hrsh7th/nvim-cmp", -- completion plugin

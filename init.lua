@@ -8,6 +8,7 @@ require('config.vscode')
 -- config.vscode must be called before config.vim-gitgutter because the former will override gitgutter highlight group,
 require('config.vim-gitgutter')
 require('config.nvim-ufo')
+require('config.nvim-lspconfig')
 
 -- Enable line numbers and syntax highlighting
 vim.opt.number = true
