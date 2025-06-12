@@ -77,21 +77,8 @@ for i = 0, 9 do
 end
 vim.api.nvim_set_keymap('n', '<leader>-', '<Plug>AirlineSelectPrevTab', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>+', '<Plug>AirlineSelectNextTab', { noremap = true })
--- Fzy integration
-local function FzyCommand(choice_command, vim_command)
-  local output = io.popen(choice_command .. " | fzf --preview='bat --color=always {}'")
-  if output then
-    local result = output:read("*a")
-    output:close()
-    if result and result ~= "" then
-      vim.cmd(vim_command .. ' ' .. result)
-    end
-  end
-end
 
-vim.api.nvim_set_keymap('n', '<leader>e', ':call v:lua.FzyCommand("plocate $PWD", ":e")<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>v', ':call v:lua.FzyCommand("plocate $PWD", ":vs")<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>s', ':call v:lua.FzyCommand("plocate $PWD", ":sp")<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>e', ':Files <CR>', { noremap = true })
 
 -- Close buffer but keep window
 vim.api.nvim_set_keymap('n', '<leader>q', ':bp<bar>sp<bar>bn<bar>bd<CR>', { noremap = true })
